@@ -80,24 +80,26 @@ void ChessScoreBoardMainFrame::AdjustButtonsAvailability() const
     {
         ButtonReset->Enable(false);
         ButtonUndo->Enable(false);
+        ButtonSave->Enable(false);
     }
     else
     {
         ButtonReset->Enable();
         ButtonUndo->Enable();
+        ButtonSave->Enable();
     }
 }
 
 void ChessScoreBoardMainFrame::UpdateHistoryWindow() const
 {
-    std::string history = this->scores->getHistory();
+    std::string history = "_" + this->scores->getHistory();
 
     TextHistory->SetValue(history);
 }
 
 void ChessScoreBoardMainFrame::UpdateScoreWindow() const
 {
-    std::string text = this->scores->getScores();
+    std::string text = "\n" + this->scores->getScores();
     TextScore->SetValue(text);
 
     // color the word "Score" in red
@@ -122,5 +124,29 @@ void ChessScoreBoardMainFrame::OnClose(wxCloseEvent &event)
     if (response == wxYES)
     {
         MainFrame::OnClose(event);
+    }
+}
+
+void ChessScoreBoardMainFrame::OnButtonSave(wxCommandEvent &event)
+{
+    auto filename = "results.txt";
+
+    auto now = wxDateTime::Now();
+    wxString timestamp ;
+    timestamp << "[" << now.FormatDate() << " " << now.FormatTime() << "]";
+
+    auto message = "Current results will be written with timestamp " + timestamp + " to the file \"" + filename + "\".\nDo you want to save them?";
+
+    auto result = wxMessageBox(message, "Save to file", wxYES_NO | wxYES_DEFAULT, this);
+    if (result == wxYES)
+    {
+        auto file = wxFile(filename, wxFile::write_append);
+
+        wxString fileContent;
+        fileContent << timestamp << " ";
+        fileContent << this->scores->getScores() << " ";
+        fileContent << "Game history (newest first): " << this->scores->getHistory() << "\n";
+
+        file.Write(fileContent);
     }
 }

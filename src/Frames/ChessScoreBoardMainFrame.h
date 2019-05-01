@@ -21,6 +21,7 @@ protected:
     void OnButtonReset(wxCommandEvent &event) override;
     void OnButtonUndo(wxCommandEvent &event) override;
     void OnClose(wxCloseEvent &event) override;
+    void OnButtonSave(wxCommandEvent &event) override;
 
 private:
     ScoreBoard *scores;

@@ -24,8 +24,6 @@ std::string ScoreBoard::getHistory()
     ss.setf(std::ios::fixed, std::ios::floatfield);
     ss.precision(1);
 
-    ss << "_";
-
     bool first = true;
     std::for_each(this->scores.rbegin(), this->scores.rend(), [&](const auto &score)
     {
@@ -46,7 +44,7 @@ std::string ScoreBoard::getHistory()
 std::string ScoreBoard::getScores()
 {
     float allScores = std::accumulate(this->scores.begin(), this->scores.end(), 0.0f);
-    return "\nScore: " + this->getAlignedString(allScores) + " / " + std::to_string(this->scores.size());
+    return "Score: " + this->getAlignedString(allScores) + " / " + std::to_string(this->scores.size());
 }
 
 void ScoreBoard::addScore(Score score)

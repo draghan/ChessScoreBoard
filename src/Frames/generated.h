@@ -28,61 +28,35 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class MainFrame
 ///////////////////////////////////////////////////////////////////////////////
-class MainFrame: public wxFrame
+class MainFrame : public wxFrame
 {
-private:
+	private:
 
-protected:
-    wxTextCtrl *TextScore;
-    wxTextCtrl *TextHistory;
-    wxButton *ButtonWinPlus;
-    wxButton *ButtonDrawPlus;
-    wxButton *ButtonLossPlus;
-    wxButton *ButtonReset;
-    wxButton *ButtonUndo;
+	protected:
+		wxTextCtrl* TextScore;
+		wxTextCtrl* TextHistory;
+		wxButton* ButtonWinPlus;
+		wxButton* ButtonDrawPlus;
+		wxButton* ButtonLossPlus;
+		wxButton* ButtonReset;
+		wxButton* ButtonUndo;
+		wxButton* ButtonSave;
 
-    // Virtual event handlers, overide them in your derived class
-    virtual void OnClose(wxCloseEvent &event)
-    {
-        event.Skip();
-    }
-
-    virtual void OnButtonWinPlus(wxCommandEvent &event)
-    {
-        event.Skip();
-    }
-
-    virtual void OnButtonDrawPlus(wxCommandEvent &event)
-    {
-        event.Skip();
-    }
-
-    virtual void OnButtonLossPlus(wxCommandEvent &event)
-    {
-        event.Skip();
-    }
-
-    virtual void OnButtonReset(wxCommandEvent &event)
-    {
-        event.Skip();
-    }
-
-    virtual void OnButtonUndo(wxCommandEvent &event)
-    {
-        event.Skip();
-    }
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
+		virtual void OnButtonWinPlus( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonDrawPlus( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonLossPlus( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonReset( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonUndo( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonSave( wxCommandEvent& event ) { event.Skip(); }
 
 
-public:
+	public:
 
-    MainFrame(wxWindow *parent,
-              wxWindowID id = wxID_ANY,
-              const wxString &title = _("Chess Score Board"),
-              const wxPoint &pos = wxDefaultPosition,
-              const wxSize &size = wxSize(500, 300),
-              long style = wxCAPTION | wxCLOSE_BOX | wxMINIMIZE_BOX | wxTAB_TRAVERSAL);
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chess Score Board"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxCAPTION|wxCLOSE_BOX|wxMINIMIZE_BOX|wxTAB_TRAVERSAL );
 
-    ~MainFrame();
+		~MainFrame();
 
 };
 
