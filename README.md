@@ -15,3 +15,7 @@ Application displays your overall score, game count and session's result history
 Application is written in C++ and uses wxWidgets 3 library.
 
 Should be multiplatform, but was tested only under Linux Mint 18 KDE, Windows 7 and Windows 10.
+
+## How to get application
+
+For Windows platform there is prepared build in [windows-build](./windows-build) directory.

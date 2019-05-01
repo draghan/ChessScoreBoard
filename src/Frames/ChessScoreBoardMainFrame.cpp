@@ -102,9 +102,15 @@ void ChessScoreBoardMainFrame::UpdateScoreWindow() const
 
     // color the word "Score" in red
     wxTextAttr style;
-    TextScore->GetStyle(0, style);
+
+    auto font = this->TextScore->GetFont();
+    font.SetFaceName("Arial");
+    font.SetPointSize(36);
+    style.SetFont(font);
+
     style.SetTextColour(wxColour(255, 0, 0));
     TextScore->SetStyle(0, 8, style);
+
     style.SetTextColour(wxColour(0, 0, 0));
     TextScore->SetStyle(8, text.size(), style);
 }
