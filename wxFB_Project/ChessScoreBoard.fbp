@@ -18,7 +18,7 @@
         <property name="internationalize">1</property>
         <property name="name">ChessScoreBoard</property>
         <property name="namespace"></property>
-        <property name="path">../Project/Frames</property>
+        <property name="path">../src/Frames</property>
         <property name="precompiled_header"></property>
         <property name="relative_path">1</property>
         <property name="skip_lua_events">1</property>
