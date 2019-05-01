@@ -11,7 +11,7 @@ Score::Score(Score::Result result)
 
 Score::operator float() const noexcept
 {
-    switch(this->result)
+    switch (this->result)
     {
         case Win:
             return 1.0f;
@@ -24,7 +24,7 @@ Score::operator float() const noexcept
 
 Score::operator std::string() const noexcept
 {
-    switch(this->result)
+    switch (this->result)
     {
         case Win:
             return "win";

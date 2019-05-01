@@ -29,7 +29,9 @@ set(SOURCE_FILES main.cpp
         Frames/generated.cpp
         Frames/generated.h
         Frames/ChessScoreBoardMainFrame.cpp
-        Frames/ChessScoreBoardMainFrame.h Logic/ScoreBoard.cpp Logic/ScoreBoard.hpp)
+        Frames/ChessScoreBoardMainFrame.h
+        Logic/ScoreBoard.cpp
+        Logic/ScoreBoard.hpp)
 
 add_executable(ChessScoreBoard ${SOURCE_FILES})
 

@@ -9,7 +9,8 @@
 #include "../Logic/Score.hpp"
 
 ChessScoreBoardMainFrame::ChessScoreBoardMainFrame(ScoreBoard *scoreBoard, wxWindow *parent)
-        : scores{scoreBoard}, MainFrame{parent}
+        : scores{scoreBoard},
+          MainFrame{parent}
 {
     // setting proper font size for text windows
     auto font = this->TextScore->GetFont();
@@ -44,8 +45,9 @@ void ChessScoreBoardMainFrame::OnButtonWinPlus(wxCommandEvent &event)
 
 void ChessScoreBoardMainFrame::OnButtonUndo(wxCommandEvent &event)
 {
-    auto response = wxMessageBox("Remove last result (" + this->scores->getLastScore() + ")?", "Confirm undo", wxYES_NO | wxYES_DEFAULT, this);
-    if(response == wxYES)
+    auto message = "Remove last result (" + this->scores->getLastScore() + ")?";
+    auto response = wxMessageBox(message, "Confirm undo", wxYES_NO | wxYES_DEFAULT, this);
+    if (response == wxYES)
     {
         this->scores->removeLastScore();
         this->UpdateFrame();
@@ -54,8 +56,9 @@ void ChessScoreBoardMainFrame::OnButtonUndo(wxCommandEvent &event)
 
 void ChessScoreBoardMainFrame::OnButtonReset(wxCommandEvent &event)
 {
-    auto result = wxMessageBox("Cannot undo reset action!\nAre you sure you want to proceed?", "Confirm reset", wxYES_NO | wxNO_DEFAULT, this);
-    if(result == wxYES)
+    auto message = "Cannot undo reset action!\nAre you sure you want to proceed?";
+    auto result = wxMessageBox(message, "Confirm reset", wxYES_NO | wxNO_DEFAULT, this);
+    if (result == wxYES)
     {
         this->scores->reset();
         this->UpdateFrame();
@@ -73,7 +76,7 @@ void ChessScoreBoardMainFrame::UpdateFrame()
 
 void ChessScoreBoardMainFrame::AdjustButtonsAvailability() const
 {
-    if(this->scores->empty())
+    if (this->scores->empty())
     {
         ButtonReset->Enable(false);
         ButtonUndo->Enable(false);
@@ -110,7 +113,7 @@ void ChessScoreBoardMainFrame::OnClose(wxCloseEvent &event)
 {
     auto response = wxMessageBox("Are you sure you want to exit?", "Close", wxYES_NO | wxNO_DEFAULT, this);
 
-    if(response == wxYES)
+    if (response == wxYES)
     {
         MainFrame::OnClose(event);
     }

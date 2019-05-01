@@ -29,7 +29,7 @@ std::string ScoreBoard::getHistory()
     bool first = true;
     std::for_each(this->scores.rbegin(), this->scores.rend(), [&](const auto &score)
     {
-        if(first)
+        if (first)
         {
             first = false;
         }
@@ -46,14 +46,7 @@ std::string ScoreBoard::getHistory()
 std::string ScoreBoard::getScores()
 {
     float allScores = std::accumulate(this->scores.begin(), this->scores.end(), 0.0f);
-
-    std::stringstream ss;
-    ss.setf(std::ios::fixed, std::ios::floatfield);
-    ss.precision(1);
-
-    ss << "\nScore: " << this->getAlignedString(allScores) << " / " << this->scores.size();
-
-    return ss.str();
+    return "\nScore: " + this->getAlignedString(allScores) + " / " + std::to_string(this->scores.size());
 }
 
 void ScoreBoard::addScore(Score score)
@@ -63,7 +56,7 @@ void ScoreBoard::addScore(Score score)
 
 void ScoreBoard::removeLastScore()
 {
-    if(!this->scores.empty())
+    if (!this->scores.empty())
     {
         this->scores.pop_back();
     }
@@ -71,12 +64,12 @@ void ScoreBoard::removeLastScore()
 
 std::string ScoreBoard::getLastScore()
 {
-    if(this->scores.empty())
+    if (this->scores.empty())
     {
         return std::string{};
     }
 
-    return *(this->scores.end()-1);
+    return *(this->scores.end() - 1);
 }
 
 std::string ScoreBoard::getAlignedString(float number) const
@@ -84,7 +77,7 @@ std::string ScoreBoard::getAlignedString(float number) const
     std::stringstream ss;
     ss.setf(std::ios::fixed, std::ios::floatfield);
 
-    if(static_cast<int>(number) == number)
+    if (static_cast<int>(number) == number)
     {
         ss.precision(0);
     }
