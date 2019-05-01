@@ -22,12 +22,14 @@ add_link_options(-mwindows)
 # #### common ####
 
 set(SOURCE_FILES main.cpp
+        Application.cpp
+        Application.hpp
         Logic/Score.cpp
         Logic/Score.hpp
         Frames/generated.cpp
         Frames/generated.h
         Frames/ChessScoreBoardMainFrame.cpp
-        Frames/ChessScoreBoardMainFrame.h)
+        Frames/ChessScoreBoardMainFrame.h Logic/ScoreBoard.cpp Logic/ScoreBoard.hpp)
 
 add_executable(ChessScoreBoard ${SOURCE_FILES})
 

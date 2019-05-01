@@ -37,14 +37,15 @@ class MainFrame : public wxFrame
 		wxTextCtrl* TextHistory;
 		wxButton* ButtonWinPlus;
 		wxButton* ButtonDrawPlus;
-		wxButton* ButtonLosePlus;
+		wxButton* ButtonLossPlus;
 		wxButton* ButtonReset;
 		wxButton* ButtonUndo;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
 		virtual void OnButtonWinPlus( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnButtonDrawPlus( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonLosePlus( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnButtonLossPlus( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnButtonReset( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnButtonUndo( wxCommandEvent& event ) { event.Skip(); }
 

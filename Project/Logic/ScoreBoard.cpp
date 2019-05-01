@@ -1,0 +1,98 @@
+//
+// Created by draghan on 2019-05-01.
+//
+
+#include <numeric>
+#include <sstream>
+#include <algorithm>
+
+#include "ScoreBoard.hpp"
+
+void ScoreBoard::reset()
+{
+    this->scores.clear();
+}
+
+bool ScoreBoard::empty()
+{
+    return this->scores.empty();
+}
+
+std::string ScoreBoard::getHistory()
+{
+    std::stringstream ss;
+    ss.setf(std::ios::fixed, std::ios::floatfield);
+    ss.precision(1);
+
+    ss << "_";
+
+    bool first = true;
+    std::for_each(this->scores.rbegin(), this->scores.rend(), [&](const auto &score)
+    {
+        if(first)
+        {
+            first = false;
+        }
+        else
+        {
+            ss << ", ";
+        }
+
+        ss << this->getAlignedString(score);
+    });
+    return ss.str();
+}
+
+std::string ScoreBoard::getScores()
+{
+    float allScores = std::accumulate(this->scores.begin(), this->scores.end(), 0.0f);
+
+    std::stringstream ss;
+    ss.setf(std::ios::fixed, std::ios::floatfield);
+    ss.precision(1);
+
+    ss << "\nScore: " << this->getAlignedString(allScores) << " / " << this->scores.size();
+
+    return ss.str();
+}
+
+void ScoreBoard::addScore(Score score)
+{
+    this->scores.push_back(score);
+}
+
+void ScoreBoard::removeLastScore()
+{
+    if(!this->scores.empty())
+    {
+        this->scores.pop_back();
+    }
+}
+
+std::string ScoreBoard::getLastScore()
+{
+    if(this->scores.empty())
+    {
+        return std::string{};
+    }
+
+    return *(this->scores.end()-1);
+}
+
+std::string ScoreBoard::getAlignedString(float number) const
+{
+    std::stringstream ss;
+    ss.setf(std::ios::fixed, std::ios::floatfield);
+
+    if(static_cast<int>(number) == number)
+    {
+        ss.precision(0);
+    }
+    else
+    {
+        ss.precision(1);
+    }
+
+    ss << number;
+    return ss.str();
+}

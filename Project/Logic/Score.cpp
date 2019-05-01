@@ -17,7 +17,7 @@ Score::operator float() const noexcept
             return 1.0f;
         case Draw:
             return 0.5f;
-        case Lose:
+        case Loss:
             return 0.0f;
     }
 }
@@ -30,7 +30,7 @@ Score::operator std::string() const noexcept
             return "win";
         case Draw:
             return "draw";
-        case Lose:
-            return "lose";
+        case Loss:
+            return "loss";
     }
 }

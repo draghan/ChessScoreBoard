@@ -1,115 +1,117 @@
 #include <numeric>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
+
 #include <wx/wx.h>
+
 #include "ChessScoreBoardMainFrame.h"
 #include "../Logic/Score.hpp"
-#include <algorithm>
-ChessScoreBoardMainFrame::ChessScoreBoardMainFrame(wxWindow *parent)
-        : MainFrame(parent)
+
+ChessScoreBoardMainFrame::ChessScoreBoardMainFrame(ScoreBoard *scoreBoard, wxWindow *parent)
+        : scores{scoreBoard}, MainFrame{parent}
 {
-    this->UpdateText();
-    wxTextAttr style;
-    this->TextScore->GetStyle(0, style);
+    // setting proper font size for text windows
+    auto font = this->TextScore->GetFont();
+    font.SetFaceName("Arial");
+    font.SetPointSize(36);
+    this->TextScore->SetFont(font);
+
+    font.SetPointSize(8);
+    this->TextHistory->SetFont(font);
+
+    // fill frame with data
+    this->UpdateFrame();
 }
 
-void ChessScoreBoardMainFrame::OnButtonLosePlus(wxCommandEvent &event)
+void ChessScoreBoardMainFrame::OnButtonLossPlus(wxCommandEvent &event)
 {
-    this->AddScore(Score::Lose);
-    this->UpdateText();
+    this->scores->addScore(Score::Loss);
+    this->UpdateFrame();
 }
 
 void ChessScoreBoardMainFrame::OnButtonDrawPlus(wxCommandEvent &event)
 {
-    this->AddScore(Score::Draw);
-    this->UpdateText();
+    this->scores->addScore(Score::Draw);
+    this->UpdateFrame();
 }
 
 void ChessScoreBoardMainFrame::OnButtonWinPlus(wxCommandEvent &event)
 {
-    this->AddScore(Score::Win);
-    this->UpdateText();
-}
-
-void ChessScoreBoardMainFrame::OnButtonReset(wxCommandEvent &event)
-{
-    auto result = wxMessageBox("Cannot undo reset action! Are you sure you want to proceed?", "Confirm reset", wxYES_NO | wxNO_DEFAULT, this);
-    if(result == wxYES)
-    {
-        this->Scores.clear();
-        this->UpdateText();
-    }
-}
-
-void ChessScoreBoardMainFrame::UpdateText()
-{
-    float scores = std::accumulate(this->Scores.begin(), this->Scores.end(), 0.0f);
-    std::stringstream ss;
-    ss.setf(std::ios::fixed, std::ios::floatfield);
-    ss.precision(1);
-    ss << "\nScore: " << scores << " / " << this->Scores.size();
-
-    std::string text = ss.str();
-    this->TextScore->SetValue(text);
-
-    wxTextAttr style;
-    this->TextScore->GetStyle(0, style);
-    style.SetTextColour(wxColour(255, 0, 0));
-    this->TextScore->SetStyle(0, 8, style);
-    style.SetTextColour(wxColour(0, 0, 0));
-    this->TextScore->SetStyle(8, text.size(), style);
-
-    std::string history;
-    bool first = true;
-
-    std::for_each(this->Scores.rbegin(), this->Scores.rend(), [&](const auto &score)
-    {
-        if(first)
-        {
-            first = false;
-        }
-        else
-        {
-            history += ", ";
-        }
-        std::string scoreString = score;
-        history += std::toupper(scoreString[0]);
-    });
-    this->TextHistory->SetValue(history);
-
-
-    if(this->Scores.size() > 0)
-    {
-        this->ButtonReset->Enable();
-        this->ButtonUndo->Enable();
-    }
-    else
-    {
-        this->ButtonReset->Enable(false);
-        this->ButtonUndo->Enable(false);
-    }
-}
-
-void ChessScoreBoardMainFrame::AddScore(Score result)
-{
-    this->Scores.push_back(result);
-}
-
-void ChessScoreBoardMainFrame::RemoveScore()
-{
-    if(this->Scores.size() > 0)
-    {
-        this->Scores.pop_back();
-    }
+    this->scores->addScore(Score::Win);
+    this->UpdateFrame();
 }
 
 void ChessScoreBoardMainFrame::OnButtonUndo(wxCommandEvent &event)
 {
-    using namespace std::string_literals;
-    std::string score = *(this->Scores.end()-1);
-    if(wxMessageBox("Undo " + score + "?", "Confirm undo", wxYES_NO | wxYES_DEFAULT, this) == wxYES)
+    auto response = wxMessageBox("Remove last result (" + this->scores->getLastScore() + ")?", "Confirm undo", wxYES_NO | wxYES_DEFAULT, this);
+    if(response == wxYES)
     {
-        this->RemoveScore();
-        this->UpdateText();
+        this->scores->removeLastScore();
+        this->UpdateFrame();
+    }
+}
+
+void ChessScoreBoardMainFrame::OnButtonReset(wxCommandEvent &event)
+{
+    auto result = wxMessageBox("Cannot undo reset action!\nAre you sure you want to proceed?", "Confirm reset", wxYES_NO | wxNO_DEFAULT, this);
+    if(result == wxYES)
+    {
+        this->scores->reset();
+        this->UpdateFrame();
+    }
+}
+
+void ChessScoreBoardMainFrame::UpdateFrame()
+{
+    this->UpdateScoreWindow();
+
+    this->UpdateHistoryWindow();
+
+    this->AdjustButtonsAvailability();
+}
+
+void ChessScoreBoardMainFrame::AdjustButtonsAvailability() const
+{
+    if(this->scores->empty())
+    {
+        ButtonReset->Enable(false);
+        ButtonUndo->Enable(false);
+    }
+    else
+    {
+        ButtonReset->Enable();
+        ButtonUndo->Enable();
+    }
+}
+
+void ChessScoreBoardMainFrame::UpdateHistoryWindow() const
+{
+    std::string history = this->scores->getHistory();
+
+    TextHistory->SetValue(history);
+}
+
+void ChessScoreBoardMainFrame::UpdateScoreWindow() const
+{
+    std::string text = this->scores->getScores();
+    TextScore->SetValue(text);
+
+    // color the word "Score" in red
+    wxTextAttr style;
+    TextScore->GetStyle(0, style);
+    style.SetTextColour(wxColour(255, 0, 0));
+    TextScore->SetStyle(0, 8, style);
+    style.SetTextColour(wxColour(0, 0, 0));
+    TextScore->SetStyle(8, text.size(), style);
+}
+
+void ChessScoreBoardMainFrame::OnClose(wxCloseEvent &event)
+{
+    auto response = wxMessageBox("Are you sure you want to exit?", "Close", wxYES_NO | wxNO_DEFAULT, this);
+
+    if(response == wxYES)
+    {
+        MainFrame::OnClose(event);
     }
 }

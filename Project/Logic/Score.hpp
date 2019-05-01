@@ -14,7 +14,7 @@ public:
     {
         Win,
         Draw,
-        Lose
+        Loss
     };
 
     Score(Result result); // NOLINT(google-explicit-constructor,hicpp-explicit-conversions)
@@ -25,7 +25,5 @@ public:
 private:
     Result result;
 };
-
-#include "../Frames/generated.h"
 
 #endif //WXWTEST_SCORE_HPP
