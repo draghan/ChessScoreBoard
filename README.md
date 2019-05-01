@@ -12,7 +12,11 @@ Application displays your overall score, game count and session's result history
 
 ## Technical touch
 
-Application is written in C++ and uses wxWidgets 3 library.
+Application is written in C++ and uses [wxWidgets 3](https://www.wxwidgets.org/) library.
+
+GUI layout was designed in [wxFormBuilder](https://github.com/wxFormBuilder/wxFormBuilder).
+
+Project based on [CMake](https://cmake.org/) ([CLion](https://www.jetbrains.com/clion/)).
 
 Should be multiplatform, but was tested only under Linux Mint 18 KDE, Windows 7 and Windows 10.
 
