@@ -6,6 +6,7 @@
 #define WXWTEST_SCORE_HPP
 
 #include <string>
+#include "ValueConfiguration.hpp"
 
 class Score
 {
@@ -19,9 +20,8 @@ public:
 
     Score(Result result); // NOLINT(google-explicit-constructor,hicpp-explicit-conversions)
 
-    operator float() const noexcept;
+    float getValue(const ValueConfiguration &configuration) const noexcept;
     operator std::string() const noexcept;
-
 private:
     Result result;
 };

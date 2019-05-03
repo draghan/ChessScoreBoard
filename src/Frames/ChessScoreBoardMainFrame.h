@@ -12,7 +12,9 @@
 class ChessScoreBoardMainFrame: public MainFrame
 {
 public:
-    explicit ChessScoreBoardMainFrame(ScoreBoard *scoreBoard, wxWindow *parent);
+    explicit ChessScoreBoardMainFrame(ScoreBoard *scoreBoard,
+                                      const ValueConfiguration &configuration,
+                                      wxWindow *parent);
 
 protected:
     void OnButtonLossPlus(wxCommandEvent &event) override;
@@ -25,6 +27,7 @@ protected:
 
 private:
     ScoreBoard *scores;
+    const ValueConfiguration &configuration;
 
     void UpdateFrame();
 

@@ -7,11 +7,20 @@
 
 #include "ChessScoreBoardMainFrame.h"
 #include "../Logic/Score.hpp"
+#include "../utils.hpp"
 
-ChessScoreBoardMainFrame::ChessScoreBoardMainFrame(ScoreBoard *scoreBoard, wxWindow *parent)
+ChessScoreBoardMainFrame::ChessScoreBoardMainFrame(ScoreBoard *scoreBoard,
+                                                   const ValueConfiguration &configuration,
+                                                   wxWindow *parent)
         : scores{scoreBoard},
+          configuration{configuration},
           MainFrame{parent}
 {
+    // setting values label on buttons
+    this->ButtonWinPlus->SetLabel("Win / " + getAlignedString(configuration.winPoints(), true));
+    this->ButtonDrawPlus->SetLabel("Draw / " + getAlignedString(configuration.drawPoints(), true));
+    this->ButtonLossPlus->SetLabel("Loss / " + getAlignedString(configuration.lossPoints(), true));
+
     // setting proper font size for text windows
     auto font = this->TextScore->GetFont();
     font.SetFaceName("Arial");
@@ -92,7 +101,7 @@ void ChessScoreBoardMainFrame::AdjustButtonsAvailability() const
 
 void ChessScoreBoardMainFrame::UpdateHistoryWindow() const
 {
-    std::string history = "_" + this->scores->getHistory();
+    std::string history = "History (newest first): " + this->scores->getHistory();
 
     TextHistory->SetValue(history);
 }
@@ -132,7 +141,7 @@ void ChessScoreBoardMainFrame::OnButtonSave(wxCommandEvent &event)
     auto filename = "results.txt";
 
     auto now = wxDateTime::Now();
-    wxString timestamp ;
+    wxString timestamp;
     timestamp << "[" << now.FormatDate() << " " << now.FormatTime() << "]";
 
     auto message = "Current results will be written with timestamp " + timestamp + " to the file \"" + filename + "\".\nDo you want to save them?";

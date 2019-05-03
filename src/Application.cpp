@@ -7,9 +7,11 @@
 
 bool Application::OnInit()
 {
+    this->configuration.loadConfig("config.cfg");
+
     wxInitAllImageHandlers();
 
-    auto frame = new ChessScoreBoardMainFrame(&(this->scoreBoard), nullptr);
+    auto frame = new ChessScoreBoardMainFrame(&(this->scoreBoard), this->configuration, nullptr);
 
     wxIcon programIcon("ChessScoreBoard.ico", wxBITMAP_TYPE_ICO);
     frame->SetIcon(programIcon);

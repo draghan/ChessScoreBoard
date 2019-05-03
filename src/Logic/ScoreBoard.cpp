@@ -3,10 +3,11 @@
 //
 
 #include <numeric>
-#include <sstream>
 #include <algorithm>
+#include <sstream>
 
 #include "ScoreBoard.hpp"
+#include "../utils.hpp"
 
 void ScoreBoard::reset()
 {
@@ -36,15 +37,19 @@ std::string ScoreBoard::getHistory()
             ss << ", ";
         }
 
-        ss << this->getAlignedString(score);
+        ss << getAlignedString(score.getValue(this->configuration));
     });
     return ss.str();
 }
 
 std::string ScoreBoard::getScores()
 {
-    float allScores = std::accumulate(this->scores.begin(), this->scores.end(), 0.0f);
-    return "Score: " + this->getAlignedString(allScores) + " / " + std::to_string(this->scores.size());
+    float allScores = std::accumulate(this->scores.begin(), this->scores.end(), 0.0f, [&](float sum, const Score &score)
+    {
+        return sum + score.getValue(this->configuration);
+    });
+
+    return "Score: " + getAlignedString(allScores) + " / " + std::to_string(this->scores.size());
 }
 
 void ScoreBoard::addScore(Score score)
@@ -70,20 +75,7 @@ std::string ScoreBoard::getLastScore()
     return *(this->scores.end() - 1);
 }
 
-std::string ScoreBoard::getAlignedString(float number) const
+ScoreBoard::ScoreBoard(const ValueConfiguration &configuration)
+        : configuration{configuration}
 {
-    std::stringstream ss;
-    ss.setf(std::ios::fixed, std::ios::floatfield);
-
-    if (static_cast<int>(number) == number)
-    {
-        ss.precision(0);
-    }
-    else
-    {
-        ss.precision(1);
-    }
-
-    ss << number;
-    return ss.str();
 }

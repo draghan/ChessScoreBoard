@@ -11,12 +11,18 @@
 class Application: public wxApp
 {
 public:
-    int OnExit() final;
+    Application():
+            configuration{},
+            scoreBoard{configuration}
+    {
+    }
+
     bool OnInit() final;
+    int OnExit() final;
 
 private:
+    ValueConfiguration configuration;
     ScoreBoard scoreBoard;
 };
-
 
 #endif //WXWTEST_APPLICATION_HPP

@@ -11,6 +11,8 @@
 class ScoreBoard
 {
 public:
+    explicit ScoreBoard(const ValueConfiguration &configuration);
+
     void reset();
     bool empty();
     std::string getHistory();
@@ -20,8 +22,7 @@ public:
     std::string getLastScore();
 private:
     std::vector<Score> scores;
-
-    std::string getAlignedString(float number) const;
+    const ValueConfiguration &configuration;
 };
 
 

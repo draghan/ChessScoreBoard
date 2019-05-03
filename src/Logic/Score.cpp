@@ -9,16 +9,16 @@ Score::Score(Score::Result result)
 {
 }
 
-Score::operator float() const noexcept
+float Score::getValue(const ValueConfiguration &configuration) const noexcept
 {
     switch (this->result)
     {
         case Win:
-            return 1.0f;
+            return configuration.winPoints();
         case Draw:
-            return 0.5f;
+            return configuration.drawPoints();
         case Loss:
-            return 0.0f;
+            return configuration.lossPoints();
     }
 }
 

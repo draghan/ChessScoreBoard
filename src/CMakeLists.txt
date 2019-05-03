@@ -31,7 +31,11 @@ set(SOURCE_FILES main.cpp
         Frames/ChessScoreBoardMainFrame.cpp
         Frames/ChessScoreBoardMainFrame.h
         Logic/ScoreBoard.cpp
-        Logic/ScoreBoard.hpp)
+        Logic/ScoreBoard.hpp
+        Logic/ValueConfiguration.cpp
+        Logic/ValueConfiguration.hpp
+        utils.cpp
+        utils.hpp)
 
 add_executable(ChessScoreBoard ${SOURCE_FILES})
 
