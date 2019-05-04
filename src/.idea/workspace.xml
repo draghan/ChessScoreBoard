@@ -13,21 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968448c5-dc14-42ab-8963-857611600256" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Logic/ValueConfiguration.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/ValueConfiguration.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Application.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Application.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/Score.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/Score.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/Score.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/Score.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/ScoreBoard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/ScoreBoard.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/ScoreBoard.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/ScoreBoard.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/generated.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/generated.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/generated.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../windows-build/ChessScoreBoard.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../windows-build/ChessScoreBoard.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wxFB_Project/ChessScoreBoard.fbp" beforeDir="false" afterPath="$PROJECT_DIR$/../wxFB_Project/ChessScoreBoard.fbp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -77,22 +68,22 @@
         <option value="$PROJECT_DIR$/Frames/Score.hpp" />
         <option value="$PROJECT_DIR$/Frames/generated.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/../README.md" />
         <option value="$PROJECT_DIR$/Logic/Configuration.cpp" />
         <option value="$PROJECT_DIR$/Logic/Configuration.hpp" />
         <option value="$PROJECT_DIR$/Logic/Score.cpp" />
-        <option value="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h" />
         <option value="$PROJECT_DIR$/utils.hpp" />
         <option value="$PROJECT_DIR$/Application.hpp" />
         <option value="$PROJECT_DIR$/Application.cpp" />
         <option value="$PROJECT_DIR$/Logic/ValueConfiguration.cpp" />
         <option value="$PROJECT_DIR$/Logic/ValueConfiguration.hpp" />
-        <option value="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp" />
         <option value="$PROJECT_DIR$/Logic/Score.hpp" />
         <option value="$PROJECT_DIR$/Logic/ScoreBoard.cpp" />
         <option value="$PROJECT_DIR$/Logic/ScoreBoard.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/utils.cpp" />
+        <option value="$PROJECT_DIR$/../README.md" />
+        <option value="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp" />
+        <option value="$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h" />
       </list>
     </option>
   </component>
@@ -109,7 +100,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,6 +121,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -142,7 +133,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -191,22 +182,23 @@
       <workItem from="1556736097675" duration="1120000" />
       <workItem from="1556738643320" duration="2187000" />
       <workItem from="1556743121868" duration="2323000" />
-      <workItem from="1556890775326" duration="8043000" />
+      <workItem from="1556890775326" duration="8805000" />
+      <workItem from="1556993232529" duration="3097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55026000" />
+    <option name="totallyTimeSpent" value="58885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18365696" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18689321" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49919093" weight="0.32982457" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48624596" visible="true" weight="0.32748538" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48624596" visible="true" weight="0.32748538" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988304" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -275,16 +267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frames/generated.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding>
-            <element signature="e#301#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frames/generated.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -296,16 +278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="16296" column="38" selection-start-line="16296" selection-start-column="38" selection-end-line="16296" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="153">
-            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -323,32 +295,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="e#75#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -448,6 +400,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="221">
+            <caret line="25" column="106" selection-start-line="25" selection-start-column="106" selection-end-line="25" selection-end-column="106" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frames/generated.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="e#301#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding>
+            <element signature="e#75#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frames/ChessScoreBoardMainFrame.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

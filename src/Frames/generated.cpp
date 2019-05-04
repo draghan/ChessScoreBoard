@@ -16,49 +16,69 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
-	TextScore = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_CENTER|wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH );
+	m_panel1 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	wxBoxSizer* bSizer61;
+	bSizer61 = new wxBoxSizer( wxVERTICAL );
+
+	TextScore = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_CENTER|wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH );
 	TextScore->Enable( false );
 
-	bSizer1->Add( TextScore, 4, wxALL|wxEXPAND, 5 );
+	bSizer61->Add( TextScore, 5, wxALL|wxEXPAND, 5 );
 
-	TextHistory = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,40 ), wxHSCROLL|wxTE_LEFT|wxTE_READONLY|wxTE_RICH );
-	bSizer1->Add( TextHistory, 0, wxALL|wxEXPAND, 5 );
+	TextHistory = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,40 ), wxHSCROLL|wxTE_LEFT|wxTE_READONLY|wxTE_RICH );
+	bSizer61->Add( TextHistory, 0, wxALL|wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer2;
-	bSizer2 = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* bSizer21;
+	bSizer21 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer4;
-	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer41;
+	bSizer41 = new wxBoxSizer( wxHORIZONTAL );
 
-	ButtonWinPlus = new wxButton( this, wxID_ANY, _("Win"), wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
-	bSizer4->Add( ButtonWinPlus, 1, wxALL|wxEXPAND, 5 );
+	m_panel2 = new wxPanel( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer411;
+	bSizer411 = new wxBoxSizer( wxHORIZONTAL );
 
-	ButtonDrawPlus = new wxButton( this, wxID_ANY, _("Draw"), wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
-	bSizer4->Add( ButtonDrawPlus, 1, wxALL|wxEXPAND, 5 );
+	ButtonWinPlus = new wxButton( m_panel2, wxID_ANY, _("Win"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer411->Add( ButtonWinPlus, 1, wxALL|wxEXPAND, 5 );
 
-	ButtonLossPlus = new wxButton( this, wxID_ANY, _("Loss"), wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
-	bSizer4->Add( ButtonLossPlus, 1, wxALL|wxEXPAND, 5 );
+	ButtonDrawPlus = new wxButton( m_panel2, wxID_ANY, _("Draw"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer411->Add( ButtonDrawPlus, 1, wxALL|wxEXPAND, 5 );
 
-
-	bSizer2->Add( bSizer4, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer6;
-	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
-
-	ButtonReset = new wxButton( this, wxID_ANY, _("Reset Score"), wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
-	bSizer6->Add( ButtonReset, 1, wxALL|wxEXPAND, 5 );
-
-	ButtonUndo = new wxButton( this, wxID_ANY, _("Undo"), wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
-	bSizer6->Add( ButtonUndo, 0, wxALL|wxEXPAND, 5 );
-
-	ButtonSave = new wxButton( this, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6->Add( ButtonSave, 0, wxALL, 5 );
+	ButtonLossPlus = new wxButton( m_panel2, wxID_ANY, _("Loss"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer411->Add( ButtonLossPlus, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer6, 1, wxEXPAND, 5 );
+	m_panel2->SetSizer( bSizer411 );
+	m_panel2->Layout();
+	bSizer411->Fit( m_panel2 );
+	bSizer41->Add( m_panel2, 1, wxEXPAND, 5 );
 
 
-	bSizer1->Add( bSizer2, 1, wxEXPAND, 5 );
+	bSizer21->Add( bSizer41, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer62;
+	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
+
+	ButtonReset = new wxButton( m_panel1, wxID_ANY, _("Reset Score"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer62->Add( ButtonReset, 1, wxALL|wxEXPAND, 5 );
+
+	ButtonUndo = new wxButton( m_panel1, wxID_ANY, _("Undo"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer62->Add( ButtonUndo, 0, wxALL|wxEXPAND, 5 );
+
+	ButtonSave = new wxButton( m_panel1, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer62->Add( ButtonSave, 0, wxALL, 5 );
+
+
+	bSizer21->Add( bSizer62, 1, wxEXPAND, 5 );
+
+
+	bSizer61->Add( bSizer21, 1, wxEXPAND, 5 );
+
+
+	m_panel1->SetSizer( bSizer61 );
+	m_panel1->Layout();
+	bSizer61->Fit( m_panel1 );
+	bSizer1->Add( m_panel1, 1, wxEXPAND | wxALL, 5 );
 
 
 	this->SetSizer( bSizer1 );

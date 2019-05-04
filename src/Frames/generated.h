@@ -21,6 +21,7 @@
 #include <wx/icon.h>
 #include <wx/button.h>
 #include <wx/sizer.h>
+#include <wx/panel.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -33,8 +34,10 @@ class MainFrame : public wxFrame
 	private:
 
 	protected:
+		wxPanel* m_panel1;
 		wxTextCtrl* TextScore;
 		wxTextCtrl* TextHistory;
+		wxPanel* m_panel2;
 		wxButton* ButtonWinPlus;
 		wxButton* ButtonDrawPlus;
 		wxButton* ButtonLossPlus;
@@ -54,7 +57,7 @@ class MainFrame : public wxFrame
 
 	public:
 
-		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chess Score Board"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxCAPTION|wxCLOSE_BOX|wxMINIMIZE_BOX|wxTAB_TRAVERSAL );
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chess Score Board"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxCAPTION|wxCLOSE_BOX|wxMINIMIZE_BOX );
 
 		~MainFrame();
 
