@@ -78,7 +78,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_panel1->SetSizer( bSizer61 );
 	m_panel1->Layout();
 	bSizer61->Fit( m_panel1 );
-	bSizer1->Add( m_panel1, 1, wxEXPAND | wxALL, 5 );
+	bSizer1->Add( m_panel1, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer1 );
